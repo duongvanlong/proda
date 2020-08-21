@@ -1,0 +1,12 @@
+
+pub = File.read("./pub.txt")
+
+rsa_public_key = OpenSSL::PKey::RSA.new(pub)
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImR2bCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImxvbiBkdW9uZyIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjJ9.R-F77fBN2FU5C9MMnknqjNZ_VmZZrYj4CNsIEbOq8qDqKLThkp30VLiLsS9AqKcZxKni4DhUDAeoVYIP493Ws3MQcCCcas9xXrEva62gth4l209YZrAvIhzecQfD2xR0Y62WpBHEDxU8fGszGUJdU9mqPUVc2ebXb94FpLvgts0"
+jwt = JSON::JWT.decode token, rsa_public_key, :RS256
+private_key = OpenSSL::PKey::RSA.new(2048)
+
+
+jwt = JSON::JWT.decode "eyJhbGciOiJSUzI1NiIsImtpZCI6ImR2bCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImxvbmcgZHVvbmciLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNTE2MjM5MDIyfQ.uWcrVvIah13aaihQlhWQ3mCAYZKVpAmq0Fbd6evFkZ2xulaCq2wZzeHJpVzfadaW8Cr_t8TqbsFLBhOi77YIycX6IktzTyIqEJoBXoFsM0t9NaNKqLCgugF_1UG9863SKAK2xfhBJ-T3oiEimAmoiW-P5kZMNSCoYVxhYIrivq4", rsa_public_key, :RS256
+
+jwt = JSON::JWT.decode "eyJhbGciOiJSUzI1NiIsImtpZCI6ImR2bCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImxvbmcgZHVvbmciLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNTE2MjM5MDIyfQ.uWcrVvIah13aaihQlhWQ3mCAYZKVpAmq0Fbd6evFkZ2xulaCq2wZzeHJpVzfadaW8Cr_t8TqbsFLBhOi77YIycX6IktzTyIqEJoBXoFsM0t9NaNKqLCgugF_1UG9863SKAK2xfhBJ-T3oiEimAmoiW-P5kZMNSCoYVxhYIrivq4", private_key.public_key, :RS256

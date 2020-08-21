@@ -1,0 +1,84 @@
+en:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+  devices:
+    title: Device
+    name: Name
+    register: Register New Device
+    placeholder: Device Name
+  organizations:
+    name: Organization
+  activation_code:
+    title: Code
+  errors:
+    unknown: Unknown
+    activation:
+      device_not_found: can't found device with name
+      missing_params: missing parameter, request need activation_code, public_key and organization_id
+      organization_id_not_matched: organization_id is not matched with registered device
+      public_key_not_uniq: public_key existed in system
+      public_key_not_valid: format of public_key is not valid
+      code_used: activation code has been used
+      code_expired: activation code expired, please register again to create new activation code
+      code_not_matched: activation code is invalid, please correct and try again
+    public_key:
+      not_json: public_key should be a json object
+      missing_keys: public_key doesn't contain enough keys
+      required_value_empty: public_key has some required fields empty
+      key_use_invalid: key use is not valid
+      algorithm_invalid: algorithm is not valid
+      key_type_invalid: key type is not valid
+      encoding_invalid: encoding is not valid
+      key_size_invalid: key size is not valid
+      key_invalid: key is not valid
+    jwt:
+      token_invalid: token is invalid
+      decode_error: Token Signature not valid
+      format_invalid: token's format is invalid
+      issue_timestamp_format_invalid: issue timestamp is not valid
+      issue_timestamp_invalid: issue timestamp should be a timestamp in the past
+      exp_timestamp_format_invalid: expiration timestamp is not valid
+      exp_timestamp_invalid: expiration timestamp should be in future and not more than 60s from now
+      exp_timestamp_expired: Token is Expired
+      exp_timestamp_too_long: Token TTL too long
+      assertion_format_invalid: Invalid token in request
+    authentication:
+      device_not_active: Device not Active
+    device_keys:
+      public_key:
+        error:
+          value: Public key has been used
+    refresh_device:
+      missing_access_token: request doesn't contain access token
+    devices:
+      organization:
+        error:
+          blank: Device should belongs to an organization
+      user:
+        error:
+          blank: Device should belongs to a user
+      name:
+        error:
+          too_short:
+            count: Device name should have 1 to 255 character
+          taken: Devcie name existed already
+    authentication:
+      missing_required_params: authentication request don't have enough required params
+      assertion_invalid: assertion in your authentication request is not valid
+      grant_type_invalid: grant_type_invalid in your authentication request is not valid
+      device_not_found: cannot find the corresponding device from your authentication request
+      device_not_active: Device not Active
+      public_key_expired: public_key of your device has been expired, please repeat register step to activate it again
+    refresh_device:
+      missing_path_params: refresh device request don't have enough required params
+      device_not_found: cannot find the corresponding device from your refresh device request
+      device_is_not_active: device in your refresh device request is not active
+      public_key_expired: public_key of your device has been expired, please repeat register step to activate it again
+      organization_id_not_valid: organization_id in your refresh device request is not valid
+      access_token_invalid: access token in your refresh device request is not valid
+      access_token_expired: access token in your refresh device request expired
+      missing_access_token: your refresh device service don't have the correct access token

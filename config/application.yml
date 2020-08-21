@@ -1,0 +1,9 @@
+defaults: &defaults
+  device_tokens:
+    expires_in: <%= 1.minutes%>
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  <<: *defaults

@@ -1,0 +1,6 @@
+.login-page
+  .form
+    = form_for(resource, as: resource_name, url: session_path(resource_name), class: "login-form") do |f|
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email"
+      = f.password_field :password, autocomplete: "current-password", placeholder: "password"
+      = f.submit "Log in"

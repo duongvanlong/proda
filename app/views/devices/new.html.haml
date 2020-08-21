@@ -1,0 +1,7 @@
+%h1 Register New Device
+= form_for(@device, url: devices_path) do |f|
+  - if @device.errors.any?
+    - @device.errors.full_messages.each do |message|
+      %li= message
+  = f.text_field :name, autofocus: true, autocomplete: "off", placeholder: t("devices.placeholder")
+  = f.submit t("devices.register")

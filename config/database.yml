@@ -1,0 +1,17 @@
+development: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  database: proda_development
+  host: <%= ENV["PRODA_DATABASE_HOST"] %>
+  username: <%= ENV["PRODA_DATABASE_USER"] %>
+  password: <%= ENV["PRODA_DATABASE_PASSWORD"] %>
+  pool: 5
+
+test:
+  <<: *default
+  database: proda_test
+
+production:
+  <<: *default
+  database: proda_production
